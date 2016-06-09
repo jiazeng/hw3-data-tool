@@ -9565,7 +9565,7 @@ var refreshGraphForCategory = function(category, i) {
     }
 
     svg.append("rect")
-    .attr("x", 550)
+    .attr("x", 880)
     .attr("y", i * 25 + 17.5)
     .attr("width", 370)
     .attr("height", 25)
