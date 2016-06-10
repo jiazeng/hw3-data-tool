@@ -9422,6 +9422,7 @@ var carData = [
   }
 ];
 
+// sets default width and height of the svg
 var width = 1200;
 var height = 800;
 
@@ -9429,10 +9430,12 @@ var svg = d3.select("#chart").append("svg")
             .attr("width", width)
             .attr("height", height);
 
+// returns the width of the bar with padding
 var barWidthPlusPadding = function(dataLength) {
     return width / dataLength;
 };
 
+// returns the width of the bar
 var barWidth = function(dataLength) {
     return barWidthPlusPadding(dataLength) - 1;
 };
@@ -9470,6 +9473,7 @@ var getUniqueCarMakes = function(data) {
     return d3.map(data, function(d) {return d['Vehicle Name'].split(' ')[0]}).keys();
 };
 
+// draws bar chart
 var visualizeData = function(data) {
     console.log("called");
     svg.selectAll("rect")
@@ -9487,6 +9491,7 @@ var visualizeData = function(data) {
    .on('mouseout', function(d) {clearDetailText(d)});
 };
 
+// shows the detailed text of the selected category
 var visualizeCarDetailsText = function() {
     d3.select("svg").append("text")
           .attr("id", "carDetailsText")
@@ -9494,6 +9499,7 @@ var visualizeCarDetailsText = function() {
           .attr("y",300);
 };
 
+// draws the controlling factor of the car makes
 var visualizeCarMakes = function(data) {
     var uniqueCarMakes = getUniqueCarMakes(data);
     svg.selectAll("circle")
